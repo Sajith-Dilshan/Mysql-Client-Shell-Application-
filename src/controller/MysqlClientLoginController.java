@@ -41,24 +41,36 @@ public class MysqlClientLoginController {
             return;
         }
 
-        String command = String.format("mysql -h %s -u %s -p%s --port %s -e exit",
-                txtHost.getText(),
-                txtUserName.getText(),
-                txtPassword.getText(),
-                txtPort.getText());
 
         try {
-            Process mysql = Runtime.getRuntime().exec(command);
-            System.out.println(mysql.waitFor());
+//            String command = String.format("mysql -h %s -u %s -p%s --port %s -e exit",
+//                    txtHost.getText(),
+//                    txtUserName.getText(),
+//                    txtPassword.getText(),
+//                    txtPort.getText());
+//            String[] commands = {"mysql",
+//                    "-h", txtHost.getText(),
+//                    "-u", txtUserName.getText(),
+//                    "--port", txtPort.getText(),
+//                    "-p" + txtPassword.getText(),
+//                    "-e", "exit"};
+//            Process mysql = Runtime.getRuntime().exec(commands);
+
+            Process mysql = new ProcessBuilder("mysql",
+                    "-h", txtHost.getText(),
+                    "-u", txtUserName.getText(),
+                    "--port", txtPort.getText(),
+                    "-p" + txtPassword.getText(),
+                    "-e", "exit").start();
+
             int exitCode = mysql.waitFor();
-            if (exitCode !=0){
+            if (exitCode != 0) {
                 new Alert(Alert.AlertType.ERROR, "Can't establish the connection, try again").show();
                 txtUserName.requestFocus();
                 txtUserName.selectAll();
-            }else{
+            } else {
                 System.out.println("done");
             }
-
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
