@@ -1,10 +1,15 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -88,7 +93,20 @@ public class MysqlClientLoginController {
                 txtUserName.requestFocus();
                 txtUserName.selectAll();
             } else {
-                System.out.println("done");
+                FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/ManipulateSqlQueryForm.fxml"));
+                AnchorPane root = fxmlLoader.load();
+                Scene shellScene = new Scene(root);
+                Stage stage = (Stage) txtUserName.getScene().getWindow();
+                stage.setScene(shellScene);
+                ManipulateSqlQueryFormController controller = fxmlLoader.getController();
+                controller.initData(txtHost.getText(),
+                        txtPort.getText(),
+                        txtUserName.getText(),
+                        txtPassword.getText());
+                stage.centerOnScreen();
+                stage.setTitle("MySQL Client Shell");
+                //Platform.runLater(() -> stage.sizeToScene());
+                Platform.runLater(stage::sizeToScene);
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
