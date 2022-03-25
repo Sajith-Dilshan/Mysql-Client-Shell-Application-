@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="610.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManipulateSqlQueryFormController">
    <children>
       <TextArea fx:id="txtCommand" layoutX="37.0" layoutY="130.0" prefHeight="76.0" prefWidth="525.0" />
@@ -27,5 +26,10 @@
          </font>
       </Label>
       <Button layoutX="491.0" layoutY="216.0" mnemonicParsing="false" onAction="#btnExecute_OnAction" text="Execute" />
+      <Label fx:id="lblCurrentSchema" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="284.0" layoutY="268.0" prefHeight="15.0" prefWidth="263.0" style="-fx-text-fill: red;" text="NO SCHEMEA SELECTED" textAlignment="RIGHT">
+         <font>
+            <Font name="Ubuntu" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
