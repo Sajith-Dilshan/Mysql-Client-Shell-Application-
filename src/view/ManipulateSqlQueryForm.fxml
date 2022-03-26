@@ -3,33 +3,45 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="610.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManipulateSqlQueryFormController">
+<AnchorPane prefHeight="669.0" prefWidth="600.0" style="-fx-background-color: #84828f;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManipulateSqlQueryFormController">
    <children>
-      <TextArea fx:id="txtCommand" layoutX="37.0" layoutY="130.0" prefHeight="76.0" prefWidth="525.0" />
-      <Label layoutX="37.0" layoutY="98.0" text="Command :">
+      <TextArea fx:id="txtCommand" layoutX="37.0" layoutY="110.0" prefHeight="76.0" prefWidth="525.0" />
+      <Label layoutX="37.0" layoutY="89.0" text="Command :">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TextArea fx:id="txtOutput" layoutX="37.0" layoutY="288.0" prefHeight="301.0" prefWidth="525.0" />
-      <Label layoutX="37.0" layoutY="254.0" text="Output / Result :">
+      <TextArea fx:id="txtOutput" layoutX="37.0" layoutY="258.0" prefHeight="364.0" prefWidth="525.0" />
+      <Label layoutX="45.0" layoutY="220.0" text="Output / Result :">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="134.0" layoutY="26.0" text="Mysql Client Shell Application ">
+      <Label layoutX="146.0" layoutY="39.0" text="Mysql Client Shell Application ">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="491.0" layoutY="216.0" mnemonicParsing="false" onAction="#btnExecute_OnAction" text="Execute" />
-      <Label fx:id="lblCurrentSchema" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="284.0" layoutY="268.0" prefHeight="15.0" prefWidth="263.0" style="-fx-text-fill: red;" text="NO SCHEMEA SELECTED" textAlignment="RIGHT">
+      <Button layoutX="491.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnExecute_OnAction" text="Execute" />
+      <Label fx:id="lblCurrentSchema" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="290.0" layoutY="233.0" prefHeight="15.0" prefWidth="263.0" style="-fx-text-fill: red; -fx-background-color: white;" text="NO SCHEMEA SELECTED" textAlignment="RIGHT">
          <font>
-            <Font name="Ubuntu" size="13.0" />
+            <Font name="Ubuntu Bold" size="14.0" />
          </font>
       </Label>
+      <Label layoutX="182.0" layoutY="637.0" text="Copyright © 2022 Sajith-dilshan">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="62.0" fitWidth="71.0" layoutX="72.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/mysql-logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
